@@ -8,7 +8,7 @@ export default function QuizPage() {
       name: w.name,
       brand: b.name,
       brandId: b.id,
-      thumbnailSrc: w.thumbnailSrc,
+      thumbnailSrc: w.thumbnailTestSrc,
     })),
   );
 
