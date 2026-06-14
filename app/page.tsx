@@ -1,11 +1,18 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { getBrands } from "@/lib/data";
 
 export default function Home() {
-  const brands = getBrands();
+  const brands = getBrands().map((brand) => ({
+    ...brand,
+    hasLogo: existsSync(
+      path.join(process.cwd(), "public", "brands", brand.id, "logo.svg"),
+    ),
+  }));
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-6 py-24 sm:py-32">
+    <main className="mx-auto w-full max-w-4xl px-6 py-24 sm:py-32">
       <header className="mb-24">
         <h1 className="font-serif text-4xl sm:text-5xl tracking-tight">
           learnthatwatch
@@ -17,7 +24,7 @@ export default function Home() {
       </header>
 
       <section>
-        <div className="flex items-baseline justify-between border-b border-rule pb-3 mb-1">
+        <div className="flex items-baseline justify-between border-b border-rule pb-3 mb-6">
           <h2 className="text-xs uppercase tracking-[0.18em] text-muted">
             Brands
           </h2>
@@ -26,23 +33,39 @@ export default function Home() {
           </span>
         </div>
 
-        <ul>
+        <ul className="grid grid-cols-2 gap-px bg-rule sm:grid-cols-3 border border-rule">
           {brands.map((brand) => (
-            <li key={brand.id} className="border-b border-rule">
+            <li key={brand.id} className="bg-background">
               <Link
                 href={`/brands/${brand.id}`}
-                className="group flex items-baseline justify-between gap-6 py-5 transition-colors hover:bg-black/[0.02]"
+                aria-label={brand.name}
+                className="group relative block aspect-square"
               >
-                <span className="font-serif text-2xl sm:text-3xl tracking-tight">
-                  {brand.name}
+                <span className="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-300 group-hover:opacity-0">
+                  {brand.hasLogo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={`/brands/${brand.id}/logo.svg`}
+                      alt=""
+                      className="max-h-[55%] max-w-[70%] object-contain"
+                    />
+                  ) : (
+                    <span className="font-serif text-2xl tracking-tight text-foreground/80 sm:text-3xl">
+                      {brand.name}
+                    </span>
+                  )}
                 </span>
-                <span className="flex items-baseline gap-4 text-xs tabular-nums text-muted">
-                  <span>{brand.founded}</span>
-                  <span className="hidden sm:inline">·</span>
-                  <span className="hidden sm:inline">{brand.country}</span>
+
+                <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="font-serif text-2xl tracking-tight sm:text-3xl">
+                    {brand.name}
+                  </span>
+                  <span className="text-xs tabular-nums text-muted">
+                    {brand.founded} · {brand.country}
+                  </span>
                   <span
                     aria-hidden
-                    className="text-foreground/40 transition-transform group-hover:translate-x-1"
+                    className="mt-2 text-foreground/50 transition-transform duration-300 group-hover:translate-x-1"
                   >
                     →
                   </span>

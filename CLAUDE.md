@@ -42,6 +42,8 @@ lib/
   types.ts                    Brand, Watch types
   data.ts                     Typed loaders (e.g. getBrands())
 public/
+  brands/<brand>/
+    logo.svg                  Brand wordmark/logo (optional — home page falls back to a typographic placeholder if missing)
   watches/<brand>/<model>/    Hand-drawn SVG + supporting images for each model
     thumbnail.svg
     img1.png, img2.png, ...
