@@ -8,6 +8,8 @@ type TileProps = {
   children: ReactNode;
   /** When provided and not disabled, the whole tile becomes a Link to this href. */
   href?: string;
+  /** Click handler — used when no href is provided (renders a real <button>). */
+  onClick?: () => void;
   /** Disable interaction and apply the coming-soon styling (grayscale + cursor-not-allowed). */
   disabled?: boolean;
   /** Accessible label for the tile as a whole. */
@@ -18,6 +20,7 @@ export function Tile({
   thumbnail,
   children,
   href,
+  onClick,
   disabled,
   ariaLabel,
 }: TileProps) {
@@ -28,7 +31,7 @@ export function Tile({
         <span className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden">
           {thumbnail}
         </span>
-        <span className="min-w-0 flex-1">{children}</span>
+        <span className="min-w-0 flex-1 text-left">{children}</span>
       </span>
 
       {/* Desktop: aspect-square, hover swaps thumbnail for meta */}
@@ -43,23 +46,36 @@ export function Tile({
     </>
   );
 
-  const sharedClass = `group block ${disabled ? "cursor-not-allowed opacity-50 grayscale" : ""}`;
+  const baseClass = "group block w-full select-none text-left";
+  const stateClass = disabled
+    ? "cursor-not-allowed opacity-50 grayscale"
+    : "cursor-pointer";
+  const sharedClass = `${baseClass} ${stateClass}`;
 
-  if (disabled || !href) {
+  if (disabled) {
     return (
-      <div
-        aria-disabled={disabled || undefined}
-        aria-label={ariaLabel}
-        className={sharedClass}
-      >
+      <div aria-disabled aria-label={ariaLabel} className={sharedClass}>
         {body}
       </div>
     );
   }
 
+  if (href) {
+    return (
+      <Link href={href} aria-label={ariaLabel} className={sharedClass}>
+        {body}
+      </Link>
+    );
+  }
+
   return (
-    <Link href={href} aria-label={ariaLabel} className={sharedClass}>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={ariaLabel}
+      className={sharedClass}
+    >
       {body}
-    </Link>
+    </button>
   );
 }
