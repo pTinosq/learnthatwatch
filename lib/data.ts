@@ -39,6 +39,7 @@ const watchViewsByBrand: Record<string, WatchView[]> = Object.fromEntries(
     watches.map((w) => ({
       ...w,
       thumbnailSrc: resolveAsset(brandId, w.thumbnail),
+      thumbnailTestSrc: resolveAsset(brandId, w.thumbnailTest ?? w.thumbnail),
       imageSrcs: w.images.map((img) => resolveAsset(brandId, img)),
     })),
   ]),
