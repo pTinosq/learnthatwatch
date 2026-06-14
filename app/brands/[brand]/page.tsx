@@ -71,6 +71,7 @@ export default async function BrandPage({
             {watches.map((watch) => (
               <li key={watch.id}>
                 <Tile
+                  href={`/brands/${brand.id}/${watch.id}`}
                   ariaLabel={watch.name}
                   thumbnail={
                     // eslint-disable-next-line @next/next/no-img-element
