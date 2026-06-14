@@ -1,19 +1,9 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
 import Link from "next/link";
 import { CircleFlag } from "react-circle-flags";
 import { getBrands } from "@/lib/data";
 
-const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
-
 export default function Home() {
-  const brands = getBrands().map((brand) => ({
-    ...brand,
-    hasLogo: existsSync(
-      path.join(process.cwd(), "public", "brands", brand.id, "logo.svg"),
-    ),
-    countryName: regionNames.of(brand.country) ?? brand.country,
-  }));
+  const brands = getBrands();
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-24 sm:py-32">
@@ -68,7 +58,7 @@ export default function Home() {
                     <span className="tabular-nums">{brand.founded}</span>
                     <span aria-hidden>·</span>
                     <CircleFlag
-                      countryCode={brand.country.toLowerCase()}
+                      countryCode={brand.countryCode}
                       height={14}
                       width={14}
                       className="inline-block"
