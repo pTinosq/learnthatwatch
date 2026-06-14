@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CircleFlag } from "react-circle-flags";
 import { Tile } from "@/components/tile";
 import { getBrands } from "@/lib/data";
@@ -8,9 +9,17 @@ export default function Home() {
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-12 sm:py-20">
-      <p className="mb-16 font-serif text-xl tracking-tight sm:mb-20 sm:text-2xl">
-        learnthatwatch
-      </p>
+      <div className="mb-16 flex items-baseline justify-between sm:mb-20">
+        <p className="font-serif text-xl tracking-tight sm:text-2xl">
+          learnthatwatch
+        </p>
+        <Link
+          href="/quiz"
+          className="text-xs uppercase tracking-[0.18em] text-muted hover:text-foreground"
+        >
+          Test yourself →
+        </Link>
+      </div>
 
       <section>
         <div className="flex items-baseline justify-between border-b border-rule pb-3 mb-6">

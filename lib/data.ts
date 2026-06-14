@@ -55,3 +55,14 @@ export function getBrand(id: string): BrandView | undefined {
 export function getWatches(brandId: string): WatchView[] {
   return watchViewsByBrand[brandId] ?? [];
 }
+
+export function getWatch(
+  brandId: string,
+  watchId: string,
+): WatchView | undefined {
+  return getWatches(brandId).find((w) => w.id === watchId);
+}
+
+export function getLiveBrands(): BrandView[] {
+  return brands.filter((b) => !b.comingSoon);
+}
