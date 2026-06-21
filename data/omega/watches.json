@@ -2,34 +2,79 @@
   {
     "id": "speedmaster",
     "name": "Speedmaster",
-    "thumbnail": "https://picsum.photos/seed/omega-speedmaster/600/600",
+    "thumbnail": "speedmaster/thumbnail.webp",
     "images": [
       "https://picsum.photos/seed/omega-speedmaster-1/1200/1200",
       "https://picsum.photos/seed/omega-speedmaster-2/1200/1200"
     ]
   },
   {
+    "id": "seamaster-diver-300m",
+    "name": "Seamaster Diver 300M",
+    "thumbnail": "seamaster-diver-300m/thumbnail.webp",
+    "images": [
+      "https://picsum.photos/seed/omega-seamaster-diver-1/1200/1200",
+      "https://picsum.photos/seed/omega-seamaster-diver-2/1200/1200"
+    ]
+  },
+  {
+    "id": "aqua-terra",
+    "name": "Aqua Terra",
+    "thumbnail": "aqua-terra/thumbnail.webp",
+    "images": [
+      "https://picsum.photos/seed/omega-aqua-terra-1/1200/1200",
+      "https://picsum.photos/seed/omega-aqua-terra-2/1200/1200"
+    ]
+  },
+  {
+    "id": "planet-ocean",
+    "name": "Planet Ocean",
+    "thumbnail": "planet-ocean/thumbnail.webp",
+    "images": [
+      "https://picsum.photos/seed/omega-planet-ocean-1/1200/1200",
+      "https://picsum.photos/seed/omega-planet-ocean-2/1200/1200"
+    ]
+  },
+  {
     "id": "seamaster-300",
     "name": "Seamaster 300",
-    "thumbnail": "https://picsum.photos/seed/omega-seamaster/600/600",
+    "thumbnail": "seamaster-300/thumbnail.webp",
     "images": [
-      "https://picsum.photos/seed/omega-seamaster-1/1200/1200",
-      "https://picsum.photos/seed/omega-seamaster-2/1200/1200"
+      "https://picsum.photos/seed/omega-seamaster-300-1/1200/1200",
+      "https://picsum.photos/seed/omega-seamaster-300-2/1200/1200"
+    ]
+  },
+  {
+    "id": "railmaster",
+    "name": "Railmaster",
+    "thumbnail": "railmaster/thumbnail.webp",
+    "images": [
+      "https://picsum.photos/seed/omega-railmaster-1/1200/1200",
+      "https://picsum.photos/seed/omega-railmaster-2/1200/1200"
     ]
   },
   {
     "id": "constellation",
     "name": "Constellation",
-    "thumbnail": "https://picsum.photos/seed/omega-constellation/600/600",
+    "thumbnail": "constellation/thumbnail.webp",
     "images": [
       "https://picsum.photos/seed/omega-constellation-1/1200/1200",
       "https://picsum.photos/seed/omega-constellation-2/1200/1200"
     ]
   },
   {
+    "id": "globemaster",
+    "name": "Globemaster",
+    "thumbnail": "globemaster/thumbnail.webp",
+    "images": [
+      "https://picsum.photos/seed/omega-globemaster-1/1200/1200",
+      "https://picsum.photos/seed/omega-globemaster-2/1200/1200"
+    ]
+  },
+  {
     "id": "de-ville",
     "name": "De Ville",
-    "thumbnail": "https://picsum.photos/seed/omega-deville/600/600",
+    "thumbnail": "de-ville/thumbnail.webp",
     "images": [
       "https://picsum.photos/seed/omega-deville-1/1200/1200",
       "https://picsum.photos/seed/omega-deville-2/1200/1200"
