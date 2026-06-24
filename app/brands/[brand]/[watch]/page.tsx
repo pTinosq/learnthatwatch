@@ -72,9 +72,8 @@ export default async function WatchPage({
           </dl>
 
           <p className="mt-8 max-w-prose text-sm text-muted leading-relaxed">
-            Study the silhouette. Notice the case shape, the bezel, the
-            indices, the hands. These are the cues that will let you name a{" "}
-            {watch.name} the next time you see one in the wild.
+            {watch.description ??
+              `Study the silhouette. Notice the case shape, the bezel, the indices, the hands. These are the cues that will let you name a ${watch.name} the next time you see one in the wild.`}
           </p>
         </div>
       </div>

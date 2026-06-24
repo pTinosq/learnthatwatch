@@ -21,6 +21,8 @@ export type BrandView = Brand & {
 export type Watch = {
   id: string;
   name: string;
+  /** Plain-text prose on the model's distinctive features. Optional. */
+  description?: string;
   /** Either a path relative to `public/watches/<brand>/` or an absolute http(s) URL. */
   thumbnail: string;
   /** Same resolution rules as `thumbnail`. */

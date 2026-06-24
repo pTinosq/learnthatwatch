@@ -62,10 +62,11 @@ Data is plain JSON, imported via `resolveJsonModule` and cast to types from `lib
 **Watch schema** (`data/<brand>/watches.json`):
 ```json
 { "id": "daytona", "name": "Cosmograph Daytona",
+  "description": "Plain-text prose on the distinctive features (optional).",
   "thumbnail": "daytona/thumbnail.webp",
   "images": ["daytona/img1.png", "daytona/img2.png"] }
 ```
-Paths inside the JSON are relative to the brand. The component resolves them to `/watches/<brand>/<path>` (i.e. served from `public/watches/<brand>/...`). Keep the schema minimal — don't add `year`, `family`, `description`, etc. until a feature actually needs them.
+Paths inside the JSON are relative to the brand. The component resolves them to `/watches/<brand>/<path>` (i.e. served from `public/watches/<brand>/...`). `description` is optional plain text shown on the watch detail page (falls back to generic copy when absent). Keep the schema minimal otherwise — don't add `year`, `family`, etc. until a feature actually needs them.
 
 **Quiz image** (no JSON field — resolved by convention). The quiz shows a blurred variant of the thumbnail with the brand name, model text and logo masked, named `<name>-quiz.webp` next to the thumbnail (e.g. `daytona/thumbnail-quiz.webp`). `quizSrc` in `lib/data.ts` detects it on disk and falls back to the plain thumbnail when it's absent — so dropping the file in is the only step. Generate these with `just quiz-prepare` rather than by hand.
 
