@@ -2,6 +2,7 @@
   {
     "id": "submariner",
     "name": "Submariner",
+    "description": "The dive-watch archetype: a unidirectional rotating bezel with a 60-minute scale, a round Oyster case with broad shoulders, and the unmistakable Mercedes hour hand. Bold round and baton indices with thick lume frames, and a date at 3 o'clock under a Cyclops lens on most references.",
     "thumbnail": "submariner/thumbnail.webp",
     "images": [
       "https://picsum.photos/seed/rolex-submariner-1/1200/1200",
